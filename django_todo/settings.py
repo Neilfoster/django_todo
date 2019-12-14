@@ -26,8 +26,10 @@ SECRET_KEY = '3e5wpz8+^q*@3848x$2ohzct4_0vogrj$gs@034th_7y8(0ecs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['neil-django-todo.herokuapp.com', 'localhost']
-
+ALLOWED_HOSTS = []
+host = os.getenv("HOST_NAME")
+if host:
+    ALLOWED_HOSTS.append(host)
 
 # Application definition
 
@@ -82,7 +84,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #    }
 #}
 
-DATABASES = {'default': dj_database_url.parse("postgres://nrlkukjlscghna:de2623bc83940294e0817575cd15af5663d8472a7388fa0c46135a6516dc4585@ec2-54-217-243-19.eu-west-1.compute.amazonaws.com:5432/dfs1bs0d4n1osd")}
+DATABASES = {'default': dj_database_url.parse(os.eviron.get('DATABASE_URL'))}
 
 
 # Password validation
