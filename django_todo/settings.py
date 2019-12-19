@@ -27,7 +27,7 @@ SECRET_KEY = '3e5wpz8+^q*@3848x$2ohzct4_0vogrj$gs@034th_7y8(0ecs'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-host = os.getenv("HOST_NAME")
+host = os.getenv("HOSTNAME")
 if host:
     ALLOWED_HOSTS.append(host)
 
